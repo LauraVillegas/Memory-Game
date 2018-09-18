@@ -75,7 +75,8 @@ function initGame(){
         return generateCards(card);
     });
     deck.innerHTML = cardHTML.join('');
-    movesHTML.innerHTML = '0';
+    moves = 0;
+    movesHTML.innerHTML = "0";
     let allCards = document.querySelectorAll('.card');
     allCards.forEach(function(card){
         card.addEventListener('click',function(e){
@@ -96,7 +97,7 @@ function initGame(){
  var resetBtn = document.querySelector('.restart');
 
 function reset () {
-    resetBtn.addEventListener('click', initGame)
+    resetBtn.addEventListener('click', initGame);
 };
 
 reset();
