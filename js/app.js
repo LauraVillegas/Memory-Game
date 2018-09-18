@@ -1,6 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
+const movesHTML = document.querySelector('.moves');
 let moves = 0;
 var cards = ['fa-diamond','fa-diamond',
             'fa-paper-plane-o','fa-paper-plane-o',
@@ -11,15 +12,43 @@ var cards = ['fa-diamond','fa-diamond',
             'fa-bicycle', 'fa-bicycle',
             'fa-bomb' , 'fa-bomb'
             ];
+let openCards = [];
+let restartBtn = document.querySelector('.restart');
+           
 function generateCards(card){
     return `<li class="card" data-card='${card}'><i class="fa ${card} "></i></li>`;
 };      
 
 function addMove (){
     moves++;
-    const movesHTML = document.querySelector('.moves');
     movesHTML.innerHTML = moves;
 }
+function reveal(card) {
+    card.classList.add('open','show');
+ };
+
+ function stageOpen (card) {
+    openCards.push(card);
+ };
+ function matchCards(card) {
+    if (openCards.length == 2) {
+        if (openCards[0].dataset.card == openCards[1].dataset.card){
+                openCards[0].classList.add('open','show','match');
+                openCards[1].classList.add('open','show','match');
+                openCards=[];
+        }
+        else {
+            (setTimeout(function(){
+            openCards.forEach(function(card) {
+            card.classList.remove('open','show');
+            });
+            openCards=[];
+            }, 500));
+        };
+        addMove();
+    };
+ };
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -30,7 +59,6 @@ function addMove (){
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
-
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
@@ -39,8 +67,40 @@ function shuffle(array) {
         array[randomIndex] = temporaryValue;
     }
     return array;
-}
+};
 
+function initGame(){
+    var deck = document.querySelector('.deck');
+    var cardHTML = shuffle(cards).map(function(card){
+        return generateCards(card);
+    });
+    deck.innerHTML = cardHTML.join('');
+    movesHTML.innerHTML = '0';
+    let allCards = document.querySelectorAll('.card');
+    allCards.forEach(function(card){
+        card.addEventListener('click',function(e){
+            if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')){
+            stageOpen(card);
+            reveal(card);
+            matchCards (card);
+            };
+        });
+    });
+
+   };   
+
+   initGame();
+
+
+
+ var resetBtn = document.querySelector('.restart');
+
+function reset () {
+    resetBtn.addEventListener('click', initGame)
+};
+
+reset();
+  
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -53,41 +113,11 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
- function initGame(){
-  var deck = document.querySelector('.deck');
-  var cardHTML = shuffle(cards).map(function(card){
-      return generateCards(card);
-  });
-  deck.innerHTML = cardHTML.join('');
- };
- initGame();
+ 
 
- var allCards = document.querySelectorAll('.card');
- var openCards = [];
 
- allCards.forEach(function(card){
-        card.addEventListener('click',function(e){
-            if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')){
-            openCards.push(card);
-            card.classList.add('open','show');
-                if (openCards.length == 2) {
-                    if (openCards[0].dataset.card == openCards[1].dataset.card){
-                            openCards[0].classList.add('open','show','match');
-                            openCards[1].classList.add('open','show','match');
-                            openCards=[];
-                            addMove();
-                    }
-                    else {
-                        (setTimeout(function(){
-                        openCards.forEach(function(card) {
-                        card.classList.remove('open','show');
-                        });
-                        openCards=[];
-                        }, 500));
-                        addMove();
-                    };
-                };    
-            };
-        });
-    });
+
+  
+
+
 
