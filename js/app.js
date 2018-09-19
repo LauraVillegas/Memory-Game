@@ -14,6 +14,7 @@ var cards = ['fa-diamond','fa-diamond',
             ];
 let openCards = [];
 let restartBtn = document.querySelector('.restart');
+let clockOff = true;
            
 function generateCards(card){
     return `<li class="card" data-card='${card}'><i class="fa ${card} "></i></li>`;
@@ -69,8 +70,62 @@ function shuffle(array) {
     return array;
 };
 
+const timer = document.querySelector('.timer');
+
+function t() {
+    s ++ ; 
+    if (s == 59) {
+        m ++;
+        if (m == 60){
+            h ++;
+            m = 0;
+        };
+        s = 0;
+    };
+    timer.innerHTML = h + ":" + m + ":" + s;
+};
+
+function initTimer() {
+    clockOff 
+    let s = 0;
+    let m = 0;
+    let h = 0;
+  
+   let clock = setInterval(() => {
+        s ++ ; 
+        if (s == 59) {
+            m ++;
+            if (m == 60){
+                h ++;
+                m = 0;
+            };
+            s = 0;
+        };
+        timer.innerHTML = (h > 9 ? h : '0' + h) + ':' + (m > 9 ? m : '0' + m) + ':' + (s > 9 ? s : '0' + s);
+    } , 1000);
+
+    var resetBtn = document.querySelector('.restart');
+
+    resetBtn.addEventListener('click', reset);
+   
+   function reset () {
+       clearInterval(clock);
+       clockOff = true;
+       timer.innerHTML = '00:00:00';
+       initGame();
+   };
+};
+
+
+
 function initGame(){
     var deck = document.querySelector('.deck');
+    deck.addEventListener('click', () => {
+        if (clockOff == true){
+        clockOff = false;
+        initTimer() ;
+        };
+    });
     var cardHTML = shuffle(cards).map(function(card){
         return generateCards(card);
     });
@@ -94,13 +149,9 @@ function initGame(){
 
 
 
- var resetBtn = document.querySelector('.restart');
 
-function reset () {
-    resetBtn.addEventListener('click', initGame);
-};
 
-reset();
+
   
 
 /*
