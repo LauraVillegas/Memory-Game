@@ -68,18 +68,14 @@ function reveal(card) {
  //evaluates star scoring depending on amount of moves
 
 function scoring(moves){
-    if (moves === 16){
+    if (moves === 22){
         removeStar();
         stars = "2";
     }
-    if (moves == 30){
+    if (moves == 40){
         removeStar();
         stars = "1";
        }
-    if (moves == 55){
-        removeStar();
-        stars = "0";
-    }
 }
 
 //evaluates if the values of the revealed cards are equal and adds the respective css class to make them look like a match
