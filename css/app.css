@@ -65,22 +65,33 @@ h1 {
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
 }
 
 .deck .card.open {
-    transform: rotateY(0);
+    transform: rotateY(180deg);
     background: #02b3e4;
     cursor: default;
+
 }
 
 .deck .card.show {
+
     font-size: 33px;
+
+ 
 }
 
 .deck .card.match {
     cursor: default;
     background: #02ccba;
     font-size: 33px;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    transform: rotateY(180deg);
+ 
+   
 }
 
 /*
@@ -109,3 +120,84 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.modal-background{
+    background: rgba(0,0,0,0.438);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+.modal-content{
+    background-color: whitesmoke;
+    position: relative;
+    padding: 1em;
+    width: 30%;
+    max-width: 600px;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    transform: translate(-50%, -70%);
+    
+}
+
+.modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+    padding: 0 1.5rem;
+    font-weight: bolder;
+    padding: 1em;
+
+    
+}
+
+.win-head{
+    color: #aa7ecd;
+    font-weight: bolder;
+    font-family: 'open sans';
+    font-size: 35px;
+}
+
+.modal-close{
+    font-weight: bold;
+    font-size: 2rem;
+    color:gray;
+    border-radius: 2px;
+    padding: 2px;
+    text-shadow: 4px 4px lightgray;
+   
+}
+
+.modal-stats{
+    align-content: center;
+    padding: 1rem;
+    border-bottom: 1px solid gray;
+
+}
+.modal-buttons{
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+}
+
+.button-modal{
+        font-size: 20px;
+        background-color: #02ccba;
+        padding: 12px 28px;
+        font-weight: bold;
+        border-radius: 8px;
+       
+    }
+
+
+.hide{
+    display: none;
+}
+
