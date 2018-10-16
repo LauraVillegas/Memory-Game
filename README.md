@@ -1,7 +1,6 @@
-# Memory Game Project
+# Memory Game Project 
 [logo]: https://image.freepik.com/free-icon/brain-cenit-view_318-98028.jpg   
-
-___________________________![free license image taken from: https://www.freepik.com/free-icon/brain-cenit-view_818081.htm][logo ]_________________________
+![free license image taken from: https://www.freepik.com/free-icon/brain-cenit-view_818081.htm][logo ]
 
 
 In a medial temporal lobe not so far away...\
