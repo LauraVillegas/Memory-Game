@@ -12,7 +12,7 @@ Give your heroes a hand by working out your memory with this fun game.
 * [Instructions](#instructions)
 * [Dependencies](#dependencies)
 * [Installation](#installation)
-* [Inspiration, Resources and Education](#resources)
+* [Resources](#resources)
 
 ## Instructions
 
