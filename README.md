@@ -12,7 +12,7 @@ Give your heroes a hand by working out your memory with this fun game.
 * [Instructions](#instructions)
 * [Dependencies](#dependencies)
 * [Installation](#installation)
-* [Inspiration, Resources and Education](#inspiration)
+* [Inspiration, Resources and Education](#resources)
 
 ## Instructions
 
@@ -41,7 +41,7 @@ Give your heroes a hand by working out your memory with this fun game.
 `git clone https://github.com/LauraVillegas/Memory-Game.git`\
 * Launch by opening index.html on your favorite browser
 
-## Inspiration, Resources and Education
+## Resources
 
 This project is part of [Udacity](https://www.udacity.com/) Front-End Web Developer Nanodegree program sponsored by Google through the Grow With Google Scholarship.\
 Some of the initial code and styles were provided by the course challenge itself.
