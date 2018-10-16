@@ -1,0 +1,28 @@
+{
+  "name": "memory-game-by-laura-villegas",
+  "version": "1.0.0",
+  "description": "Exercise your memory with this fun game! ",
+  "main": "index.html",
+  "dependencies": {
+    "csshake": "^1.5.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LauraVillegas/Memory-Game.git"
+  },
+  "keywords": [
+    "memory-game",
+    "udacity-project",
+    "fend-memory-game"
+  ],
+  "author": "Laura Villegas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LauraVillegas/Memory-Game/issues"
+  },
+  "homepage": "https://github.com/LauraVillegas/Memory-Game#readme"
+}

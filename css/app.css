@@ -202,5 +202,9 @@ h1 {
 }
 
 
+.shake-horizontal {
+          animation-iteration-count: 10;
+  }
+
 
 

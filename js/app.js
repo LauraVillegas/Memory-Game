@@ -5,7 +5,7 @@ let clockOff = true;
 let matched = 0;
 const movesHTML = document.querySelector('.moves');
 const timer = document.querySelector('.timer');
-var resetBtn = document.querySelector('.restart');
+const resetBtn = document.querySelector('.restart');
 let clock;
 let score = document.querySelector('.stars');
 let stars = "3"; 
@@ -78,20 +78,22 @@ function scoring(moves){
        }
 }
 
+
 //evaluates if the values of the revealed cards are equal and adds the respective css class to make them look like a match
 
 function matchCards(card) {
+    card.classList.remove('shake-horizontal');
     if (openCards.length == 2) {
         if (openCards[0].dataset.card == openCards[1].dataset.card){
                 openCards[0].classList.add('open','show','match');
                 openCards[1].classList.add('open','show','match');
                 openCards=[];
-                matched ++;
-                
+                matched ++;      
         }
         else {
             (setTimeout(function(){
-            openCards.forEach(function(card) {
+            openCards.forEach(function(card) { 
+            card.classList.add('shake-horizontal');  
             card.classList.remove('open','show');
             });
             openCards=[];
@@ -99,6 +101,7 @@ function matchCards(card) {
         };
         addMove();
         scoring(moves);
+        openCards.classList.remove('shake-horizontal');
     };
  };
 
